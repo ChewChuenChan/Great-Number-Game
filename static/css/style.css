@@ -1,0 +1,36 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+input{
+    width:200px;
+    height:50px;
+    margin:20px;
+}
+
+.TooHigh,.TooLow,.Win{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:200px;
+    font-size: 10px;
+}
+.TooHigh{
+    background-color: red;
+    color:yellow;
+}
+.TooLow{
+    background-color: blue;
+    color:white;
+}
+.Win{
+    background-color: peachpuff;
+    color:rebeccapurple;
+    flex-direction: column;
+}

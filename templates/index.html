@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Great Number Game</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="jumbotron text-center my-5">
+        <h1 class="display-3">Welcome to the Great Number Game!</h1>
+        <p class="display-6">I am thinking of a number between 1 and 100</p>
+<!-- pop out sign: Too High-->
+        {% if guess > rnum: %}
+            <div class="TooHigh">
+                <h2>Too High!</h2>
+            </div>
+            <!-- pop out sign: Too low and guess > 0 -->
+        {% elif guess < rnum and guess > 0 : %}
+
+            <div class ="TooLow">
+                <h2>Too Low!</h2>
+            </div>
+        {% elif guess == rnum: %}   
+            <div class ="Win">
+                <div><h2>You got it! The number was {{guess}}</h2></div>
+                <a href="/reset" class="mb-3 btn btn-success">Play Again</a>
+            </div>
+        {% endif %}
+
+        <form class="col align-items-center bg-dark" action='/guess', method="POST">
+            <p class="display-6  text-warning">Take a guess!</p> 
+            <div class="mb-3">
+                <input type="number" name="guess_num">
+            </div>
+            <p class="display-6 text-light" id="clicks">0</p>
+            <!-- <button  type="button" onclick="count_click()" class=" mb-3 btn btn-primary"><a href='/guess'>Submit</a></button> -->
+            <button onclick="count_click()" class=" mb-3 btn btn-primary">Submit</button>
+            
+        </form>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src ="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
