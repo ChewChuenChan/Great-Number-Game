@@ -8,11 +8,11 @@ body{
     align-items: center;
 
 }
-input{
+/* input{
     width:200px;
     height:50px;
     margin:20px;
-}
+} */
 
 .TooHigh,.TooLow,.Win{
     display:flex;
